@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.i("demo", "onClick: ");
                 new GetDataTask().execute();
+                // NewRelic.log(LogLevel.INFO, "HTTPS Request onClick");
                 //Enable New Relic Session
                 // String sessionId = NewRelic.currentSessionId();
                 ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -262,11 +263,13 @@ public class MainActivity extends AppCompatActivity {
                         .url(url)
                         .build();
                 Response response = client.newCall(request).execute();
+                // NewRelic.log(LogLevel.INFO, "HTTPS response received");
 
                 return response.body().string();
 
             } catch (IOException e) {
                 e.printStackTrace();
+                // NewRelic.log(LogLevel.ERROR, "HTTPS response failed");
                 return "failed";
             }
 
