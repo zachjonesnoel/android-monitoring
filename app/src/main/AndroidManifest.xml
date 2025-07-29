@@ -17,6 +17,15 @@
         android:theme="@style/Theme.Android_Base_Training"
         tools:targetApi="33">
         <activity
+            android:name=".BreadcrumbPanelActivity"
+            android:exported="false"
+            android:label="Breadcrumb"
+            android:theme="@style/Theme.Android_Base_Training.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".secondinteraction"
             android:exported="false"
             android:label="@string/title_activity_secondinteraction"
