@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/newrelic_light_gray"
+    tools:context=".BreadcrumbPanelActivity">
+
+    <!-- Header Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/success_green">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Breadcrumb Panel"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track User Journey &amp; Navigation Flow"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:alpha="0.9"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Info Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ℹ️ Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/newrelic_dark"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/breadcrumbInfoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Breadcrumbs help track user interactions and navigation patterns within your application. Use this panel to add custom breadcrumbs that will be recorded in New Relic for debugging and user experience analysis."
+                android:textSize="14sp"
+                android:textColor="@color/newrelic_text_gray"
+                android:lineSpacingExtra="4dp" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Action Buttons Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🔧 Actions"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/newrelic_dark"
+                android:layout_marginBottom="12dp" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="2">
+
+                <Button
+                    android:id="@+id/addBreadcrumbButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="➕ Add Custom"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/success_green"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/viewJourneyButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="👁️ View Journey"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/info_blue"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/clearBreadcrumbsButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="🗑️ Clear All"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/warning_orange"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/exportBreadcrumbsButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="📤 Export"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/monitoring_purple"
+                    android:paddingVertical="12dp"
+                    android:textSize="14sp" />
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Status Section -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📊 Breadcrumb Status"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/newrelic_dark"
+                android:layout_marginBottom="8dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/breadcrumbStatusText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ready to record breadcrumbs...\n\n• Panel opened\n• Waiting for user actions"
+                    android:textSize="14sp"
+                    android:textColor="@color/newrelic_text_gray"
+                    android:background="@color/newrelic_light_gray"
+                    android:padding="12dp"
+                    android:fontFamily="monospace" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Close Panel Button -->
+    <Button
+        android:id="@+id/closePanelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="❌ Close Panel"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/error_red"
+        android:paddingVertical="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_margin="4dp" />
+
+</LinearLayout>
