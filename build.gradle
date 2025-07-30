@@ -9,7 +9,7 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // New Relic Android Agent to be added here
         //classpath("com.newrelic.agent.android:agent-gradle-plugin:7.6.1")
-        //classpath('com.android.tools.build:gradle:8.7.2') 
+        classpath('com.android.tools.build:gradle:8.7.2')
 
         //classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }

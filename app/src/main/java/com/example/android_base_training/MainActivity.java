@@ -28,7 +28,7 @@ import okhttp3.Response;
 // import com.newrelic.agent.android.FeatureFlag;
 // import com.newrelic.agent.android.NewRelic;
 // import com.newrelic.agent.android.util.NetworkFailure;
-// import android.os.Handler;
+ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
     private Button crashme, getHttp, customattr1, customattr2, event, bread, handled, anr, newpage;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     public final Handler handler = new Handler();
 
-    String token = "TOKEN TO BE ADDED HERE";
+    String token = "NEW RELIC ANDROID TOKEN TO BE ADDED HERE";
 
     public class BubbleSortExample {
         public void bubbleSort(int[] arr) {
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 // Uncomment New Relic interaction APIs
                 // NewRelic.startInteraction("Sending Breadcrumb");
                 Log.i("intract", "START sending breadcrumb");
-                String sessionId = NewRelic.currentSessionId();
+//                String sessionId = NewRelic.currentSessionId();
                 Map<String, Object> attributes = new HashMap<String, Object>();
                 attributes.put("button", "set breadcrumb");
                 attributes.put("location", "Clicking button");
