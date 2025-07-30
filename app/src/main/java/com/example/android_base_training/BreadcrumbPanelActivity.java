@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 //Uncomment New Relic imports
-import com.newrelic.agent.android.NewRelic;
+//import com.newrelic.agent.android.NewRelic;
 
 public class BreadcrumbPanelActivity extends AppCompatActivity {
-    
+
     private Button addBreadcrumbButton, viewJourneyButton, clearBreadcrumbsButton, exportBreadcrumbsButton, closePanelButton;
     private TextView breadcrumbStatusText, breadcrumbInfoText;
     private StringBuilder statusLog;
@@ -80,40 +80,40 @@ public class BreadcrumbPanelActivity extends AppCompatActivity {
         panelAttributes.put("panel", "breadcrumb_panel");
         panelAttributes.put("action", "opened");
         panelAttributes.put("timestamp", getCurrentTimestamp());
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Panel Opened", panelAttributes);
+//        NewRelic.recordBreadcrumb("Panel Opened", panelAttributes);
     }
 
     private void addCustomBreadcrumb() {
         breadcrumbCount++;
         String breadcrumbName = "Custom Action " + breadcrumbCount;
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("action", "custom_breadcrumb");
         attributes.put("count", breadcrumbCount);
         attributes.put("panel", "breadcrumb_demo");
         attributes.put("timestamp", getCurrentTimestamp());
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb(breadcrumbName, attributes);
-        
+//        NewRelic.recordBreadcrumb(breadcrumbName, attributes);
+
         logStatus("✅ Added: " + breadcrumbName);
         logStatus("   → Count: " + breadcrumbCount);
     }
 
     private void viewUserJourney() {
         logStatus("👁️ Viewing user journey...");
-        logStatus("   → Session ID: " + NewRelic.currentSessionId());
+//        logStatus("   → Session ID: " + NewRelic.currentSessionId());
         logStatus("   → Total breadcrumbs: " + breadcrumbCount);
         logStatus("   → Journey analysis available in New Relic dashboard");
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("action", "view_journey");
         attributes.put("breadcrumb_count", breadcrumbCount);
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Journey Viewed", attributes);
+//        NewRelic.recordBreadcrumb("Journey Viewed", attributes);
     }
 
     private void clearAllBreadcrumbs() {
@@ -122,42 +122,42 @@ public class BreadcrumbPanelActivity extends AppCompatActivity {
         breadcrumbCount = 0;
         logStatus("   → Breadcrumbs cleared locally");
         logStatus("   → Note: New Relic breadcrumbs persist in session");
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("action", "clear_breadcrumbs");
         attributes.put("previous_count", breadcrumbCount);
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Breadcrumbs Cleared", attributes);
+//        NewRelic.recordBreadcrumb("Breadcrumbs Cleared", attributes);
     }
 
     private void exportBreadcrumbs() {
         logStatus("📤 Exporting breadcrumbs...");
         logStatus("   → Format: New Relic JSON");
-        logStatus("   → Session: " + NewRelic.currentSessionId());
+//        logStatus("   → Session: " + NewRelic.currentSessionId());
         logStatus("   → Export completed");
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("action", "export_breadcrumbs");
         attributes.put("format", "json");
         attributes.put("count", breadcrumbCount);
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Breadcrumbs Exported", attributes);
+//        NewRelic.recordBreadcrumb("Breadcrumbs Exported", attributes);
     }
 
     private void closeBreadcrumbPanel() {
         logStatus("❌ Closing breadcrumb panel...");
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("panel", "breadcrumb_panel");
         attributes.put("action", "closed");
         attributes.put("session_breadcrumbs", breadcrumbCount);
         attributes.put("timestamp", getCurrentTimestamp());
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Panel Closed", attributes);
-        
+//        NewRelic.recordBreadcrumb("Panel Closed", attributes);
+
         finish(); // Close the activity and return to previous screen
     }
 
@@ -175,13 +175,13 @@ public class BreadcrumbPanelActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        
+
         Map<String, Object> attributes = new HashMap<String, Object>();
         attributes.put("panel", "breadcrumb_panel");
         attributes.put("action", "destroyed");
         attributes.put("final_breadcrumb_count", breadcrumbCount);
-        
+
         // Uncomment New Relic breadcrumb recording
-        NewRelic.recordBreadcrumb("Panel Destroyed", attributes);
+//        NewRelic.recordBreadcrumb("Panel Destroyed", attributes);
     }
 }

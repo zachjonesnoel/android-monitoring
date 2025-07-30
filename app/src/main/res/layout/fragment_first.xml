@@ -93,6 +93,17 @@
                     android:paddingVertical="12dp"
                     android:textSize="16sp" />
 
+                <Button
+                    android:id="@+id/button_home_first"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Go to Home"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/newrelic_accent"
+                    android:paddingVertical="12dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="16sp" />
+
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
